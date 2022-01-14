@@ -14,7 +14,12 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap' }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -36,7 +41,13 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxt/content'],
+  modules: [
+    '@nuxt/content',
+    '@nuxtjs/style-resources'
+  ],
+  styleResources: {
+    scss: ['~/assets/sass/variables.scss']
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
