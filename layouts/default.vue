@@ -2,7 +2,11 @@
   <div>
     <Header />
     <div class="container">
-      <Nuxt />
+      <div class="left-body" />
+      <div class="body">
+        <Nuxt />
+      </div>
+      <div class="right-body" />
     </div>
   </div>
 </template>
@@ -17,7 +21,22 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .container {
   display: flex;
+  margin-top: 24px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 0px;
   justify-content: center;
-  width: 80%;
+}
+
+.body {
+  width: 60%;
+}
+
+.right-body {
+  width: 20%;
+}
+
+.left-body {
+  width: 20%;
 }
 </style>
