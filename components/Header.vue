@@ -1,15 +1,33 @@
 <template>
   <div class="header-container">
     <div class="header-inner">
-      <h1 class="title" @click="clickHome">
-        山 川 道 場
-      </h1>
+      <div class="title-container" @click="clickHome">
+        <div class="title-container__title">
+          morv.jp
+        </div>
+      </div>
       <div class="button-container">
-        <Button
-          text="Home"
-          :type="0"
-          :on-click="clickHome"
-        />
+        <div class="button-sub-container">
+          <Button
+            text="Home"
+            :type="0"
+            :on-click="goHome"
+          />
+        </div>
+        <div class="button-sub-container">
+          <Button
+            text="About"
+            :type="0"
+            :on-click="goAbout"
+          />
+        </div>
+        <div class="button-sub-container">
+          <Button
+            text="Blog"
+            :type="0"
+            :on-click="goBlog"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -19,8 +37,14 @@
 import Vue from 'vue';
 export default Vue.extend({
   methods: {
-    clickHome () {
+    goHome () {
       this.$router.push('/');
+    },
+    goAbout () {
+      this.$router.push('/about');
+    },
+    goBlog () {
+      this.$router.push('/blog');
     }
   }
 });
@@ -30,27 +54,30 @@ export default Vue.extend({
 .header-container {
   width: 100%;
   height: 96px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
 }
 
 .header-inner {
-  width: 80%;
+  width: 100%;
+  max-width: 940px;
   padding-top: 32px;
   padding-bottom: 8px;
   padding-right: 8px;
   padding-left: 8px;
-  border-bottom: 1px solid $primary;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.title {
-  font-family: $header-title-font;
+.title-container {
+  &__title {
+    font-size: $normal;
+  }
 }
 
-.title:hover {
+.title-container:hover {
   cursor: pointer;
 }
 
@@ -58,5 +85,10 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.button-sub-container {
+  margin-right: 12px;
+  margin-left: 12px;
 }
 </style>
