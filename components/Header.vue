@@ -1,7 +1,7 @@
 <template>
   <div class="header-container">
     <div class="header-inner">
-      <div class="title-container" @click="clickHome">
+      <div class="title-container" @click="goHome">
         <div class="title-container__title">
           morv.jp
         </div>
