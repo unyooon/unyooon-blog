@@ -17,6 +17,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     // 使っていない変数でwarn
+    'vue/multi-word-component-names': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     // console.log, console.infoはwarn
