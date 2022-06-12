@@ -1,6 +1,7 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -52,5 +53,49 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  storybook: {
+    // 追加のアドオンなどあれば
+    addons: [
+      '@storybook/addon-controls',
+      '@storybook/addon-notes',
+    ],
+    // ポート指定
+    port: 3003,
+    // ストーリーの親に要素など追加しcssなど設定できる
+    decorators: [
+    ],
+    // 背景色や表示位置、デバイスの設定など
+    parameters: {
+      // 背景色：デフォルトの色を使う場合
+      backgrounds: {
+        default: 'dark', // light or dark
+      },
+      // 背景色：カスタマイズする場合
+      backgrounds: {
+        default: 'light',
+        values: [
+          {
+            name: 'brown',
+            value: '#56371B'
+          },
+          {
+            name: 'light',
+            value: '#fff'
+          },
+          {
+            name: 'dark',
+            value: '#333'
+          },
+        ]
+      },
+      // Description, Default, Controlsカラムの表示
+      controls: {
+        expanded: true
+      },
+      // 表示位置
+      layout: 'centered', // centered:中央表示, padded:コンポーネントに余白付与, fullscreen:幅いっぱい
+    }
+  }
 };

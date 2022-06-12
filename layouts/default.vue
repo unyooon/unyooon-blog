@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <OrganismsHeader />
     <div class="container">
       <div class="left-body" />
       <div class="body">

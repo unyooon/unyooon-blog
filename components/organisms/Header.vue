@@ -8,21 +8,21 @@
       </div>
       <div class="button-container">
         <div class="button-sub-container">
-          <Button
+          <AtomsButton
             text="Home"
             :type="0"
             :on-click="goHome"
           />
         </div>
         <div class="button-sub-container">
-          <Button
+          <AtomsButton
             text="About"
             :type="0"
             :on-click="goAbout"
           />
         </div>
         <div class="button-sub-container">
-          <Button
+          <AtomsButton
             text="Blog"
             :type="0"
             :on-click="goBlog"
