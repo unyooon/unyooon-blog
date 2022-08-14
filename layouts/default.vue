@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <OrganismsHeader />
     <div class="container">
       <div class="left-body" />
       <div class="body">
@@ -29,6 +29,7 @@ export default Vue.extend({
 .body {
   width: 100%;
   max-width: 940px;
+  margin-top: 48px;
 }
 
 .right-body {
