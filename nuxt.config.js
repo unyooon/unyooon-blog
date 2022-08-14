@@ -41,7 +41,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module'
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-gtag'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -57,14 +57,8 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID
-  },
-
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID
-    }
+  'google-gtag': {
+    id: process.env.GOOGLE_ANALYTICS_ID,
   },
 
   storybook: {
