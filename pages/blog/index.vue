@@ -1,8 +1,17 @@
 <template>
   <div>
-    <div v-for="article in articles" :key="article._path">
-      <div> {{ article.title }} </div>
-      <div> {{ article.description }} </div>
+    <div class="articles">
+      <template v-for="article in articles" >
+        <div @click="$router.push(`/blog/${article.slug}`)" :key="article._path">
+          <MoleculesBlogCard
+            width="320px"
+            :title="article.title"
+            :description="article.description"
+            :date="`2022-06-01`"
+            :category="`category`"
+          />
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -16,10 +25,12 @@ export default Vue.extend({
     return {
       articles
     }
-  }
+  },
 });
 </script>
 
 <style lang="scss" scoped>
-
+.articles {
+  display: flex;
+}
 </style>

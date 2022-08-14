@@ -29,6 +29,7 @@ export default Vue.extend({
 .body {
   width: 100%;
   max-width: 940px;
+  margin-top: 48px;
 }
 
 .right-body {

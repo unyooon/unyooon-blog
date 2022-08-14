@@ -3,7 +3,7 @@
     <div class="header-inner">
       <div class="title-container" @click="goHome">
         <div class="title-container__title">
-          morv.jp
+          UNYOOON BLOG
         </div>
       </div>
       <div class="button-container">
@@ -57,6 +57,7 @@ export default Vue.extend({
   margin-top: 24px;
   display: flex;
   justify-content: center;
+  font-family: $title-font;
 }
 
 .header-inner {
