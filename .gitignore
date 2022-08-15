@@ -92,3 +92,6 @@ sw.*
 # storybook
 .nuxt-storybook
 storybook-static
+
+# firebase
+.firebase
