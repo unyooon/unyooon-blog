@@ -41,7 +41,8 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module'
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/google-gtag',
+    '@nuxt/postcss8'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -50,15 +51,32 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/dayjs'
   ],
+
   styleResources: {
     scss: ['~/assets/sass/variables.scss']
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {}
+      }
+    }
+  },
 
   'google-gtag': {
     id: process.env.GOOGLE_ANALYTICS_ID,
+  },
+
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.ts',
+    exposeConfig: false,
+    config: {},
+    injectPosition: 0,
+    viewer: true,
   },
 
   storybook: {

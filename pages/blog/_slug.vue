@@ -69,7 +69,7 @@ export default Vue.extend({
 
   &__title {
     font-weight: bold;
-    font-size: $huge;
+    font-size: $x-large;
   }
 }
 
