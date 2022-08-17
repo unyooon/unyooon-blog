@@ -1,110 +1,106 @@
 <template>
-  <div>
-    <div class="card" :style="cardCssProps">
-      <div class="img-container">
-        <div class="img-container__date">
-          <AtomsDateTip :date="date" />
-        </div>
-        <div class="img-container__category">
-          <AtomsTip :text="category" />
-        </div>
-      </div>
-      <div class="content">
-        <div class="content__title">
-          {{ title }}
-        </div>
-        <div class="content__description">
-          {{ description }}
-        </div>
-      </div>
+  <div class="card">
+    <div class="img-content">
+      <img class="img" :src="img" alt="">
+    </div>
+    <div class="card__title">
+      {{ title }}
+    </div>
+    <div class="card__category">
+      <div class="gg-folder" />
+      {{ category }}
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
   props: {
-    width: {
+    img: {
       type: String,
-      required: false,
-      default: '400px'
+      required: true
     },
     title: {
       type: String,
       required: true
     },
-    description: {
-      type: String,
-      required: true
-    },
-    date: {
-      type: String,
-      required: true,
-    },
     category: {
       type: String,
       required: true
-    },
-  },
-  computed: {
-    cardCssProps () {
-      return {
-        '--width': this.width,
-      }
     }
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
 .card {
-  width: var(--width);
-  height: calc(calc(var(--width) / 1.91) * 2.5);
-  border: 1px solid $primary;
-  border-radius: 4%;
-  overflow: hidden;
-  background-color: white;
-  cursor: pointer;
-}
+  width: 259.76px;
+  margin: 1em;
 
-.img-container {
-  display: flex;
-  flex-direction: column;
-  height: 40%;
-  background-image: url('~/assets/picture/icatch/2022-06-01-cat.jpeg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
 
-  &__date {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 12px;
-    flex-grow: 99;
+  &__title {
+    font-size: $small;
+    line-height: 1.5em;
+
+    &:hover {
+      color: $primary;
+    }
   }
 
   &__category {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    margin-top: 0.4rem;
+    font-size: $x-small;
+    align-items: center;
   }
 }
 
-.content {
-  padding: 4px;
-  display: flex;
-  flex-direction: column;
-  
-  &__title {
-    font-size: 1.2em;
-    margin: 4px;
-  }
+.img-content {
+  width: 259.76px;
+  height: 136px;
+  margin-bottom: 0.5rem;
+  transition: transform .3s;
 
-  &__description {
-    font-size: 1em;
-    margin: 4px;
+  &:hover {
+    transition: transform .3s;
+    transform: scale(1.05);
   }
+}
+
+.img {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.gg-folder {
+  margin: 0.3rem;
+  transform: scale(var(--ggs,1))
+}
+.gg-folder,
+.gg-folder::after {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 16px;
+  border: 2px solid;
+  border-radius: 3px
+}
+.gg-folder::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 4px;
+  border-bottom: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: -5px
 }
 </style>

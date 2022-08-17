@@ -1,15 +1,23 @@
 
 // variables
-$background-color: #F4EEE8;
-$primary: #114E60;
-$secondary: #325288;
+$background-color: #f9f4ef;
+$primary: #004643;
+$secondary: #abd1c6;
+$button: #f9bc60;
+$button-text: #001e1d;
+$highlight: #f9bc60;
+$white: #FFFF;
+$black: #000;
 
 $title-font: 'Noto Serif JP', serif;
-$body-font: 'Noto Sans JP', sans-serif;
+$body-font: "Kosugi",sans-serif;
 
 // fontsize
-$huge: 32px;
-$big: 28px;
-$normal: 24px;
+$x-large: 26px;
+$large: 22px;
+$normal: 18px;
 $small: 16px;
-$x-small: 14px;
+$x-small: 12px;
+
+// screen size
+$tablet: 640px;

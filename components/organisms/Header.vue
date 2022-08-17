@@ -14,7 +14,7 @@
             :on-click="goHome"
           />
         </div>
-        <div class="button-sub-container">
+        <!-- <div class="button-sub-container">
           <AtomsButton
             text="About"
             :type="0"
@@ -27,7 +27,7 @@
             :type="0"
             :on-click="goBlog"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -54,10 +54,11 @@ export default Vue.extend({
 .header-container {
   width: 100%;
   height: 96px;
-  margin-top: 24px;
   display: flex;
   justify-content: center;
   font-family: $title-font;
+  background-color: $primary;
+  color: $white;
 }
 
 .header-inner {
@@ -74,7 +75,7 @@ export default Vue.extend({
 
 .title-container {
   &__title {
-    font-size: $normal;
+    font-size: $x-large;
   }
 }
 

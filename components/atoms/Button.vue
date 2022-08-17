@@ -42,11 +42,11 @@ export default Vue.extend({
   padding-left: 8px;
   align-items: center;
   line-height: 1.5em;
-  font-size: 12px;
+  font-size: $small;
 }
 
 .button:hover {
-  color: $primary;
+  color: $highlight;
   cursor: pointer;
 }
 </style>
