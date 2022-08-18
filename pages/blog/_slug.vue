@@ -6,11 +6,6 @@
           {{ article.title }}
         </div>
       </div>
-      <div class="description-container">
-        <div class="description-container__description">
-          {{ article.description }}
-        </div>
-      </div>
       <div class="date-container">
         <div class="date-container__date">
           {{ dateFormatter(article.createdAt) }}
@@ -19,8 +14,14 @@
           |
         </div>
         <div class="date-container__tag">
-          {{ "tag" }}
+          <div class="gg-folder" />
+          <div class="date-container__tag__text">
+            {{ article.category }}
+          </div>
         </div>
+      </div>
+      <div class="img-container">
+        <img :src="require(`~/assets/picture/icatch/${$route.params.slug}-000.jpg`)" alt="">
       </div>
       <div class="body-container">
         <nuxt-content :document="article" />
@@ -33,19 +34,16 @@
 import { FetchReturn } from '@nuxt/content/types/query-builder';
 import dayjs from 'dayjs';
 import Vue from 'vue';
-
-type Data = {
-  article: FetchReturn | null
-}
+import Meta from '~/assets/mixins/meta';
 
 export default Vue.extend({
-  data (): Data {
+  mixins: [Meta],
+  async asyncData ({ $content, params }) {
+    const article = await $content('articles', params.slug).fetch() as FetchReturn;
+
     return {
-      article: null
+      article
     };
-  },
-  async fetch () {
-    this.article = await this.$content('articles', this.$route.params.slug).fetch() as FetchReturn;
   },
   methods: {
     dateFormatter (date: string) {
@@ -57,43 +55,55 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .main-container {
-  padding-top: 16px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-bottom: 16px;
+  @media (min-width: $tablet) {
+    margin-top: 120px;
+    padding: 3rem 8rem;
+  }
+  @media (max-width: $tablet) {
+    padding: 1em;
+  }
 }
 
 .title-container {
-  margin-top: 32px;
-  margin-bottom: 16px;
+  margin: 3rem 0;
 
   &__title {
+    margin: 3rem 0;
+    text-align: center;
     font-weight: bold;
     font-size: $x-large;
   }
-}
 
-.description-container {
-  margin-top: 16px;
-  margin-bottom: 24px;
-
-  &__description {
-    font-size: $small;
-  }
 }
 
 .date-container {
   display: flex;
   align-items: center;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin: 3rem 0;
+  border-bottom: 1px dotted $black;
 
   &__date {
     font-size: $x-small;
+    font-weight: bold;
   }
 
   &__tag {
-    font-size: $x-small;
+    display: flex;
+    align-items: center;
+
+    &__text {
+      font-size: $x-small;
+      font-weight: bold;
+    }
+  }
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 100%;
   }
 }
 
@@ -105,5 +115,32 @@ export default Vue.extend({
 .v-divider {
   margin-left: 8px;
   margin-right: 8px;
+}
+
+.gg-folder {
+  margin: 0.3rem;
+  transform: scale(var(--ggs,1))
+}
+.gg-folder,
+.gg-folder::after {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 16px;
+  border: 2px solid;
+  border-radius: 3px
+}
+.gg-folder::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 4px;
+  border-bottom: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: -5px
 }
 </style>

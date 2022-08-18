@@ -1,4 +1,7 @@
 
+// screen size
+$tablet: 640px;
+
 // variables
 $background-color: #f9f4ef;
 $primary: #004643;
@@ -19,5 +22,10 @@ $normal: 18px;
 $small: 16px;
 $x-small: 12px;
 
-// screen size
-$tablet: 640px;
+@media (max-width: $tablet) {
+  $x-large: 20px;
+  $large: 16px;
+  $normal: 14px;
+  $small: 10px;
+  $x-small: 8px;
+}

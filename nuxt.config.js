@@ -12,7 +12,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: '2年目ITエンジニアのしがないBLOG' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -49,7 +49,8 @@ export default {
   modules: [
     '@nuxt/content',
     '@nuxtjs/style-resources',
-    '@nuxtjs/dayjs'
+    '@nuxtjs/dayjs',
+    '@nuxtjs/sitemap'
   ],
 
   styleResources: {
@@ -68,6 +69,11 @@ export default {
 
   'google-gtag': {
     id: process.env.GOOGLE_ANALYTICS_ID,
+  },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://blog.unyooon.com'
   },
 
   tailwindcss: {

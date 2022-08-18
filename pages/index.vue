@@ -13,7 +13,7 @@
             <MoleculesBlogCard
               :title="article.title"
               :category="article.category"
-              :img="require('~/assets/picture/icatch/2022-08-25-shipito.jpg')"
+              :img="require(`~/assets/picture/icatch/${article.slug}-000.jpg`)"
             />
           </div>
         </template>
@@ -74,4 +74,5 @@ export default Vue.extend({
     flex-wrap: wrap;
   }
 }
+
 </style>

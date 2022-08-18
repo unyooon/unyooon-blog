@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxt/content": "^1",
     "@nuxtjs/dayjs": "^1.4.1",
+    "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/stylelint-module": "^4.1.0",
     "autoprefixer": "^10.4.8",
     "core-js": "^3.19.3",
