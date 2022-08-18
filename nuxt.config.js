@@ -73,7 +73,13 @@ export default {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://blog.unyooon.com'
+    hostname: 'https://blog.unyooon.com',
+    routes: async () => {
+      const { $content } = require('@nuxt/content');
+
+      const articles = await $content('articles').only(['path']).fetch();
+      return articles.map(a => a.path);
+    }
   },
 
   tailwindcss: {
