@@ -27,8 +27,6 @@ import Vue from 'vue';
 export default Vue.extend({
   async asyncData ({ $content }) {
     const articles = await $content('articles').only(['title', 'category', 'slug', 'path']).sortBy('createdAt', 'desc').fetch();
-    console.log(articles);
-
     return {
       articles
     };
