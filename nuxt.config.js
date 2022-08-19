@@ -67,6 +67,15 @@ export default {
     }
   },
 
+  generate: {
+    async routes() {
+      const { $content } = require('@nuxt/content');
+      const files = await $content('articles').only(['path']).fetch();
+      console.log(files);
+      return files.map(file => file.path === '/index' ? '/' : file.path);
+    }
+  },
+
   'google-gtag': {
     id: process.env.GOOGLE_ANALYTICS_ID,
   },

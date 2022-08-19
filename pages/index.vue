@@ -9,7 +9,7 @@
       </div>
       <div class="new-topics__content">
         <template v-for="article in articles">
-          <div :key="article._path" @click="$router.push(`/blog/${article.slug}`)">
+          <div :key="article._path" @click="$router.push(`${article.path}`)">
             <MoleculesBlogCard
               :title="article.title"
               :category="article.category"

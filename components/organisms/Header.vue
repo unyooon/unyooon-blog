@@ -39,13 +39,13 @@ export default Vue.extend({
   methods: {
     goHome () {
       this.$router.push('/');
-    },
-    goAbout () {
-      this.$router.push('/about');
-    },
-    goBlog () {
-      this.$router.push('/blog');
     }
+    // goAbout () {
+    //   this.$router.push('/about');
+    // },
+    // goBlog () {
+    //   this.$router.push('/blog');
+    // }
   }
 });
 </script>
