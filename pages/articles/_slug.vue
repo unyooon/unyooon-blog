@@ -23,6 +23,21 @@
       <div class="img-container">
         <img :src="require(`~/assets/picture/icatch/${$route.params.slug}-000.jpg`)" alt="">
       </div>
+      <div class="nuxt-content">
+        <p v-for="str, i in article.description.split('。')" :key="i">
+          {{ str ? `${str}。` : '' }}
+        </p>
+        <h2>目次</h2>
+        <div>
+          <ul>
+            <li v-for="toc, i in article.toc" :key="toc.id">
+              <a :href="`#${toc.id}`">
+                {{ `${i+1}. ${toc.text}` }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="body-container">
         <nuxt-content :document="article" />
       </div>
