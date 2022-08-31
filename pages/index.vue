@@ -9,13 +9,13 @@
       </div>
       <div class="new-topics__content">
         <template v-for="article in articles">
-          <div :key="article._path" @click="$router.push(`${article.path}`)">
+          <nuxt-link :key="article._path" :to="article.path">
             <MoleculesBlogCard
               :title="article.title"
               :category="article.category"
               :img="require(`~/assets/picture/icatch/${article.slug}-000.jpg`)"
             />
-          </div>
+          </nuxt-link>
         </template>
       </div>
     </div>

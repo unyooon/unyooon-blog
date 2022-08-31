@@ -7,7 +7,8 @@ export default {
   head: {
     title: 'UNYOOON BLOG',
     htmlAttrs: {
-      lang: 'ja'
+      lang: 'ja',
+      prefix: 'og: http://ogp.me/ns#'
     },
     meta: [
       { charset: 'utf-8' },
@@ -71,7 +72,6 @@ export default {
     async routes() {
       const { $content } = require('@nuxt/content');
       const files = await $content('articles').only(['path']).fetch();
-      console.log(files);
       return files.map(file => file.path === '/index' ? '/' : file.path);
     }
   },
