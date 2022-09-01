@@ -8,7 +8,7 @@
       </div>
       <div class="date-container">
         <div class="date-container__date">
-          {{ dateFormatter(article.createdAt) }}
+          {{ dateFormatter(article.date) }}
         </div>
         <div class="v-divider">
           |
