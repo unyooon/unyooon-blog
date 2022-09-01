@@ -53,7 +53,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .header-container {
   width: 100%;
-  height: 96px;
+  height: $header-height;
   display: flex;
   justify-content: center;
   font-family: $title-font;

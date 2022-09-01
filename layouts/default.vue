@@ -1,7 +1,7 @@
 <template>
   <div class="layout-main">
     <OrganismsHeader />
-    <div class="container mx-auto">
+    <div class="site-body container mx-auto">
       <Nuxt />
     </div>
     <OrganismsFooter />
@@ -19,8 +19,12 @@ export default Vue.extend({
 .layout-main {
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.site-body {
+  min-height: calc(calc(100vh - $header-height) - $footer-height);
 }
 </style>
