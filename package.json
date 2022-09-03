@@ -19,6 +19,7 @@
     "core-js": "^3.19.3",
     "eslint-plugin-vue-scoped-css": "^2.1.0",
     "nuxt": "^2.15.8",
+    "nuxt-i18n": "^6.28.1",
     "sass": "^1.48.0",
     "sass-loader": "10",
     "vue": "^2.6.14",

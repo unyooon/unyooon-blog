@@ -17,6 +17,9 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
+      { rel: 'x-default', href: 'https://blog.unyooon.com/ja/' },
+      { rel: 'alternate', hreflang: 'ja', href: 'https://blog.unyooon.com/ja/' },
+      { rel: 'alternate', hreflang: 'en', href: 'https://blog.unyooon.com/en/' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
@@ -49,6 +52,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxt/content',
+    'nuxt-i18n',
     '@nuxtjs/style-resources',
     '@nuxtjs/dayjs',
     '@nuxtjs/sitemap'
@@ -68,10 +72,33 @@ export default {
     }
   },
 
+  i18n: {
+    strategy: 'prefix_and_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected'
+    },
+    locales: [{
+      code: 'en',
+      iso: 'en-US',
+      file: 'en-US.json'
+    },
+    {
+      code: 'ja',
+      iso: 'ja-JP',
+      file: 'ja-JP.json'
+    }
+    ],
+    langDir: 'locales/',
+    vueI18n: {
+      fallbackLocale: 'ja'
+    }
+  },
+
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content');
-      const files = await $content('articles').only(['path']).fetch();
+      const files = await $content().only(['path']).fetch();
       return files.map(file => file.path === '/index' ? '/' : file.path);
     }
   },
@@ -86,7 +113,7 @@ export default {
     routes: async () => {
       const { $content } = require('@nuxt/content');
 
-      const articles = await $content('articles').only(['path']).fetch();
+      const articles = await $content().only(['path']).fetch();
       return articles.map(a => a.path);
     }
   },

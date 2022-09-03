@@ -9,7 +9,7 @@
       </div>
       <div class="new-topics__content">
         <template v-for="article in articles">
-          <nuxt-link :key="article._path" :to="article.path">
+          <nuxt-link :key="article._path" :to="localePath(article.path)">
             <MoleculesBlogCard
               :title="article.title"
               :category="article.category"
@@ -24,11 +24,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { FetchReturn } from '@nuxt/content/types/query-builder';
 export default Vue.extend({
-  async asyncData ({ $content }) {
-    const articles = await $content('articles').only(['title', 'category', 'slug', 'path']).sortBy('createdAt', 'desc').fetch();
+  async asyncData ({ $content, app }) {
+    const articles = await $content(app.i18n.locale, 'articles').only(['title', 'category', 'slug', 'path']).sortBy('createdAt', 'desc').fetch();
     return {
-      articles
+      articles: articles.map((article: FetchReturn) => ({
+        ...article,
+        path: article.path.replace(`/${app.i18n.locale}`, '')
+      }))
     };
   }
 });
@@ -41,6 +45,10 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: $tablet) {
+    margin-top: 2rem;
+  }
 
   &__title {
     margin: 1rem 0;
@@ -71,6 +79,10 @@ export default Vue.extend({
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
+
+    @media (max-width: $tablet) {
+      justify-content: center;
+    }
   }
 }
 

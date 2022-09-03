@@ -33,8 +33,6 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   font-family: $title-font;
-  background-color: $primary;
-  color: $white;
 }
 
 .footer-inner {

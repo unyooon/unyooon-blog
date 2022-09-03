@@ -24,8 +24,8 @@
         <img :src="require(`~/assets/picture/icatch/${$route.params.slug}-000.jpg`)" alt="">
       </div>
       <div class="nuxt-content">
-        <p v-for="str, i in article.description.split('。')" :key="i">
-          {{ str ? `${str}。` : '' }}
+        <p v-for="str, i in article.description.split(/。|\./)" :key="i">
+          {{ str && $i18n.locale === 'ja' ? `${str}。` : str && $i18n.locale === 'en' ? `${str}.` : '' }}
         </p>
         <h2>目次</h2>
         <div>
@@ -53,8 +53,8 @@ import Meta from '~/assets/mixins/meta';
 
 export default Vue.extend({
   mixins: [Meta],
-  async asyncData ({ $content, params }) {
-    const article = await $content('articles', params.slug).fetch() as FetchReturn;
+  async asyncData ({ $content, app, params }) {
+    const article = await $content(app.i18n.locale, 'articles', params.slug).fetch() as FetchReturn;
 
     return {
       article

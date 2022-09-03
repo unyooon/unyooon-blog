@@ -2,7 +2,7 @@
   <div class="main">
     <div class="contents">
       <template v-for="article in articles">
-        <nuxt-link :key="article._path" :to="article.path">
+        <nuxt-link :key="article._path" :to="localePath(article.path)">
           <MoleculesBlogCard
             :title="article.title"
             :category="article.category"
@@ -15,12 +15,16 @@
 </template>
 
 <script lang="ts">
+import { FetchReturn } from '@nuxt/content/types/query-builder';
 import Vue from 'vue';
 export default Vue.extend({
-  async asyncData ({ $content }) {
-    const articles = await $content('articles').only(['title', 'category', 'slug', 'path']).sortBy('createdAt', 'desc').fetch();
+  async asyncData ({ $content, app }) {
+    const articles = await $content(app.i18n.locale, 'articles').only(['title', 'category', 'slug', 'path']).sortBy('createdAt', 'desc').fetch();
     return {
-      articles
+      articles: articles.map((article: FetchReturn) => ({
+        ...article,
+        path: article.path.replace(`/${app.i18n.locale}`, '')
+      }))
     };
   }
 });

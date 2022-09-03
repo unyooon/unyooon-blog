@@ -1,33 +1,15 @@
 <template>
   <div class="header-container">
     <div class="header-inner">
-      <div class="title-container" @click="goHome">
-        <div class="title-container__title">
-          UNYOOON BLOG
-        </div>
+      <div class="header-logo">
+        <nuxt-link :to="localePath('/')">
+          <img :src="require('~/assets/picture/logo/header_logo.png')" alt="">
+        </nuxt-link>
       </div>
       <div class="button-container">
         <div class="button-sub-container">
-          <AtomsButton
-            text="Home"
-            :type="0"
-            :on-click="goHome"
-          />
+          <MoleculesLanguageSwitcher />
         </div>
-        <!-- <div class="button-sub-container">
-          <AtomsButton
-            text="About"
-            :type="0"
-            :on-click="goAbout"
-          />
-        </div>
-        <div class="button-sub-container">
-          <AtomsButton
-            text="Blog"
-            :type="0"
-            :on-click="goBlog"
-          />
-        </div> -->
       </div>
     </div>
   </div>
@@ -37,15 +19,6 @@
 import Vue from 'vue';
 export default Vue.extend({
   methods: {
-    goHome () {
-      this.$router.push('/');
-    }
-    // goAbout () {
-    //   this.$router.push('/about');
-    // },
-    // goBlog () {
-    //   this.$router.push('/blog');
-    // }
   }
 });
 </script>
@@ -57,8 +30,12 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   font-family: $title-font;
-  background-color: $primary;
-  color: $white;
+  // background-color: $primary;
+  // color: $white;
+
+  @media (max-width: $tablet) {
+    height: $header-height-mb;
+  }
 }
 
 .header-inner {
@@ -71,16 +48,23 @@ export default Vue.extend({
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
 
-.title-container {
-  &__title {
-    font-size: $x-large;
+  @media (max-width: $tablet) {
+    flex-direction: column;
   }
 }
 
-.title-container:hover {
-  cursor: pointer;
+.header-logo {
+
+  img {
+    width: 240px;
+  }
+
+  @media (max-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .button-container {
