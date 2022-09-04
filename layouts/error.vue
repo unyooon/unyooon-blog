@@ -10,7 +10,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import url("https://fonts.googleapis.com/css?family=Bevan");
 
 .return-text {
     color: $primary;
