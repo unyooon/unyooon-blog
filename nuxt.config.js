@@ -47,6 +47,7 @@ export default {
     '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module'
     '@nuxtjs/google-gtag',
+    '@nuxtjs/google-analytics',
     '@nuxt/postcss8'
   ],
 
@@ -105,7 +106,11 @@ export default {
   },
 
   'google-gtag': {
-    id: process.env.GOOGLE_ANALYTICS_ID,
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
+
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID
   },
 
   sitemap: {
