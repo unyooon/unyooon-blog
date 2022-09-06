@@ -46,13 +46,12 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module'
-    '@nuxtjs/google-gtag',
-    '@nuxtjs/google-analytics',
     '@nuxt/postcss8'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/google-gtag',
     '@nuxt/content',
     'nuxt-i18n',
     '@nuxtjs/style-resources',
@@ -71,7 +70,17 @@ export default {
         tailwindcss: {},
         autoprefixer: {}
       }
+    },
+    extend(config, ctx) {
+      config.node = {
+        fs: 'empty'
+      };
     }
+  },
+
+  'google-gtag': {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    debug: true
   },
 
   i18n: {
@@ -102,15 +111,7 @@ export default {
       const { $content } = require('@nuxt/content');
       const files = await $content().only(['path']).fetch();
       return files.map(file => file.path === '/index' ? '/' : file.path);
-    }
-  },
-
-  'google-gtag': {
-    id: process.env.GOOGLE_ANALYTICS_ID
-  },
-
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID
+    },
   },
 
   sitemap: {
@@ -122,6 +123,10 @@ export default {
       const articles = await $content().only(['path']).fetch();
       return articles.map(a => a.path);
     }
+  },
+
+  publicRuntimeConfig: {
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID
   },
 
   tailwindcss: {
