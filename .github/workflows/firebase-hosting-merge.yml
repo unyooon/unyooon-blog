@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: GOOGLE_ANALYTICS_ID=${{ secrets.GOOGLE_ANALYTICS_ID }} && yarn install && yarn generate
+      - name: Set env
+        run: export GOOGLE_ANALYTICS_ID=${{ secrets.GOOGLE_ANALYTICS_ID }}
+      - name: Install & Generate
+        run:  yarn install && yarn generate
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
