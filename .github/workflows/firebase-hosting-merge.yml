@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set env
-        run: export GOOGLE_ANALYTICS_ID=${{ secrets.GOOGLE_ANALYTICS_ID }}
+      - name: Create .env file
+        run: |
+          touch .env
+          echo GOOGLE_ANALYTICS_ID=${{ secrets.GOOGLE_ANALYTICS_ID }} > .env
       - name: Install & Generate
         run:  yarn install && yarn generate
       - uses: FirebaseExtended/action-hosting-deploy@v0
