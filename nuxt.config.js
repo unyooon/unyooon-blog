@@ -104,7 +104,8 @@ export default {
     langDir: 'locales/',
     vueI18n: {
       fallbackLocale: 'ja'
-    }
+    },
+    lazy: true
   },
 
   generate: {

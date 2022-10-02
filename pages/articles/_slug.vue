@@ -27,7 +27,7 @@
         <p v-for="str, i in article.description.split(/。|\./)" :key="i">
           {{ str && $i18n.locale === 'ja' ? `${str}。` : str && $i18n.locale === 'en' ? `${str}.` : '' }}
         </p>
-        <h2>目次</h2>
+        <h2>{{ $t('agenda') }}</h2>
         <div>
           <ul>
             <li v-for="toc, i in article.toc" :key="toc.id">
