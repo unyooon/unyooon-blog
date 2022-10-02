@@ -87,7 +87,8 @@ export default {
     strategy: 'prefix_and_default',
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'i18n_redirected'
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',  // recommended
     },
     locales: [{
       code: 'en',
@@ -109,8 +110,9 @@ export default {
   generate: {
     async routes() {
       const { $content } = require('@nuxt/content');
-      const files = await $content().only(['path']).fetch();
-      return files.map(file => file.path === '/index' ? '/' : file.path);
+      const articles_ja = await $content('ja', 'articles').only(['path']).fetch();
+      const articles_en = await $content('en', 'articles').only(['path']).fetch();
+      return articles_ja.concat(articles_en).map(article => article.path === '/index' ? '/ja' : article.path);
     },
   },
 
@@ -119,9 +121,9 @@ export default {
     hostname: 'https://blog.unyooon.com',
     routes: async () => {
       const { $content } = require('@nuxt/content');
-
-      const articles = await $content().only(['path']).fetch();
-      return articles.map(a => a.path);
+      const articles_ja = await $content('ja', 'articles').only(['path']).fetch();
+      const articles_en = await $content('en', 'articles').only(['path']).fetch();
+      return articles_ja.concat(articles_en).map(a => a.path);
     }
   },
 
