@@ -1,4 +1,11 @@
 {
   "goTop": "トップへ戻る",
-  "agenda": "目次"
+  "agenda": "目次",
+  "contact": {
+    "message": "内容",
+    "email": "メールアドレス",
+    "contactMe": "お問い合わせ",
+    "name": "お名前",
+    "send": "送信"
+  }
 }

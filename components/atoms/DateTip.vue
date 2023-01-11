@@ -8,30 +8,31 @@
         {{ year }}
       </div>
     </div>
-  </div> 
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import dayjs from 'dayjs'
+import Vue from 'vue';
+import dayjs from 'dayjs';
 
 export default Vue.extend({
   props: {
-      date: {
-          type: String,
-          required: false,
-          default: "2022-06-01"
-      }
+    date: {
+      type: String,
+      required: false,
+      default: '2022-06-01'
+
+    }
   },
   computed: {
     day (): string {
-      return dayjs(this.date).format('MM')
+      return dayjs(this.date).format('MM');
     },
     year (): string {
-      return dayjs(this.date).format('YYYY') 
+      return dayjs(this.date).format('YYYY');
     }
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>

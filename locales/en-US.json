@@ -1,4 +1,11 @@
 {
   "goTop": "Return to Home",
-  "agenda": "Agenda"
+  "agenda": "Agenda",
+  "contact": {
+    "message": "Message",
+    "email": "Email",
+    "contactMe": "Contact Me",
+    "name": "Name",
+    "send": "Send"
+  }
 }

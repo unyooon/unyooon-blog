@@ -1,5 +1,5 @@
 <template>
-  <div class="button" @click="onClick">
+  <div class="button" @click="onClick()">
     {{ text }}
   </div>
 </template>

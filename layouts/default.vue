@@ -1,6 +1,11 @@
 <template>
-  <div class="layout-main">
-    <OrganismsHeader />
+  <div
+    class="layout-main"
+    :style="style"
+  >
+    <OrganismsHeader
+      @changeLang="changeLang"
+    />
     <div class="site-body container mx-auto">
       <Nuxt />
     </div>
@@ -10,8 +15,41 @@
 
 <script lang="ts">
 import Vue from 'vue';
-export default Vue.extend({
 
+type Data = {
+  style: {[index: string]: string};
+}
+
+export default Vue.extend({
+  data (): Data {
+    return {
+      style: {}
+    };
+  },
+  mounted () {
+    if (this.$i18n.locale === 'ja') {
+      this.style = {
+        fontFamily: '\'Kosugi\',sans-serif'
+      };
+    } else if (this.$i18n.locale === 'en') {
+      this.style = {
+        fontFamily: '\'Work Sans\', sans-serif'
+      };
+    }
+  },
+  methods: {
+    changeLang (locale: string) {
+      if (locale === 'ja') {
+        this.style = {
+          fontFamily: '\'Kosugi\',sans-serif'
+        };
+      } else if (locale === 'en') {
+        this.style = {
+          fontFamily: '\'Work Sans\', sans-serif'
+        };
+      }
+    }
+  }
 });
 </script>
 

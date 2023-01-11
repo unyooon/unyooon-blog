@@ -8,7 +8,9 @@
       </div>
       <div class="button-container">
         <div class="button-sub-container">
-          <MoleculesLanguageSwitcher />
+          <MoleculesLanguageSwitcher
+            @changeLang="changeLang"
+          />
         </div>
       </div>
     </div>
@@ -19,6 +21,9 @@
 import Vue from 'vue';
 export default Vue.extend({
   methods: {
+    changeLang (locale: string) {
+      return this.$emit('changeLang', locale);
+    }
   }
 });
 </script>

@@ -1,5 +1,5 @@
 export default {
-  data() {
+  data () {
     return {
       meta: {
         title: '',
@@ -12,7 +12,7 @@ export default {
       base: 'https://blog.unyooon.com'
     };
   },
-  head() {
+  head () {
     // 相対パスを取得。例えば'/item/1'とか
     const path = this.$route.path;
 
