@@ -1,78 +1,68 @@
 ---
-title: What is EC?
-description: Hello, this is UNYOOON. Recently, I have been involved in many global EC sites in my work, and I often think about what EC is. I have often wondered what EC is. So, I wrote this article as a reminder of what I have researched about EC.
+title: What is EC? A brief summary of the recent EC topic
+description: Hello, I'm UNYOOON. Recently, I often work on global EC websites, and I often think about what EC is. So, I wrote an article based on what I researched about EC, also as a memo.
 category: E-Commerce
 date: 2022-09-01
 ---
 
-## EC Overview
+## Overview of EC
 
-In a nutshell, EC is "buying and selling products and services online. Amazon" is a typical example of EC.
+EC, in short, is "buying and selling products and services online". Something you may all know is "Amazon" which is a representative example of EC.
 
-Amazon is not a site that deals only in physical goods. In addition to physical products, Amazon also handles e-books, movies, animations, and other videos. Buying and selling these non-physical goods and services in general online is called EC.
+Sometimes, people misunderstand that EC only refers to buying and selling physical items online. But it's not just limited to that. Amazon also handles products such as e-books, movies, animations and more. So, the buying and selling of any product or service online is called EC.
 
+## How EC came about
 
-## Origin of EC
+So, how did EC come about?
 
-How did EC come into being?
+The changes in the buying and selling of products and services show that.
 
-It can be seen by looking at how the buying and selling of goods and services has changed.
+Initially, when communication equipment was not widely distributed, businesses had to have "physical stores" to sell items. However, as communication equipment such as mobile phones became widespread and able to handle many calls, "catalogue sales" were born. Consumers could then view catalogs and order items by phone. After that, when the Internet became widely used, "EC websites", which allow customers to order items online, were created.
 
-In the beginning, when telecommunication devices were not widely distributed, businesses had to have a "physical store" to sell their products. However, when communication devices such as cell phones became widespread and it became possible to handle a large number of calls, "mail order" was born, in which consumers browsed through catalogs and ordered dismantled products by phone. Later, when the Internet became widely available, "e-commerce sites" were born, allowing consumers to select products online and order them directly from the Internet.
+This way, buying and selling has changed over time, but all the sales methods still exist. That's because each sales method has its own advantages and disadvantages.
 
-As you can see, the buying and selling of products has changed over time, but all forms of sales have not disappeared. This is because every form of sales has its advantages and disadvantages.
+## Advantages and Disadvantages of EC
 
+EC is becoming a world where most things can be bought online, with many individuals and businesses entering the market. The reason EC has become so big is that it has advantages for both consumers and businesses that are not available with store sales.
 
-## Merits and demerits of EC
+Specifically, a consumer's advantage is that you can order items with a small amount of site operations and have them delivered to your home without going to a store. Currently, with the situation of COVID, being able to buy items only online is a huge advantage.
 
-EC is now a world where many individuals and businesses have entered the market and most things can be purchased online. The reason why the world of EC has grown so large is that it offers advantages to both consumers and businesses that are not available in brick-and-mortar stores.
+On the other hand, disadvantages include not being sure if the item will really be delivered since it is online, and the uncertainty of not being able to see the face of a store clerk. Although major EC sites may be reassuring, this uncertainty is especially significant when starting your own EC site or using EC overseas.
 
-The major advantage for consumers is that they can order products with a few simple operations on the website and have them delivered to their homes without having to go to a store. With the current situation in Corona, the ability to buy products online without going out is a very big advantage.
+However, systems have evolved to address these uncertainties. Specifically, there are "live chat" functions available on online sites, as well as "omnichannel" systems that prepare multiple sales routes, such as online and physical stores, and share all information through them.
 
-On the other hand, one of the disadvantages is that because it is online, there are concerns about whether the products will really be delivered or not, or about not being able to see the store clerk's face. With major e-commerce sites, you have the peace of mind that everyone is using them, but when you start your own e-commerce site or use an overseas e-commerce site, these concerns can have a big impact, especially if you are not sure if you will receive your products online or not.
-
-However, mechanisms are evolving to resolve these concerns. For example, "live chat", which allows customers to chat online, and "omni-channel", which provides multiple sales channels, such as physical stores and online e-commerce, and shares all information with them.
-
-The advantages on the vendor side are that initial costs can be reduced on a small scale by being able to develop a business without a storefront, and sales efficiency and profits can be increased by analyzing customers' personal information and purchasing information in detail and introducing appropriate advertisements and products to the right users.
+The advantage for a business side is that you can expand business without having a physical store, and that the start-up cost is lower, especially if the business is small scale. Furthermore, by analyzing customer information and purchasing information in detail, and by providing appropriate advertisements and products to appropriate users, it is possible to increase sales efficiency and profit.
 
 However, these advantages and disadvantages can be divided according to the type of EC.
 
-
 ## Types of EC
 
-EC can be divided into two main types.
+EC can be divided into two main types:
 
-The first is "in-house EC.
+1."In-house EC"
 
-In-house EC is a type of EC where you build and manage your own EC site.
+In-house EC refers to building and managing an EC site on your own. Building and managing the system and security are necessary, but you can also outsource the maintenance and security measures to the system provider using packages.
 
-Although it is necessary to build the EC site and manage the system and security, by using a package, etc., there are cases where the operation, maintenance, and security measures can be left to the system provider.
+The advantage of in-house EC is that you can create a unique EC site and make branding easier. This can lead to more repeat customers and not being caught in price competition. However, it may also increase labor and cost.
 
-One of the advantages of in-house EC is the ability to create a unique EC site, which makes branding easier. This can help your brand gain fans and repeat customers, and keep you from getting caught up in price competition.
+2."Mall EC"
 
-However, there is a disadvantage in that it requires more time and cost to build and operate the site in-house, as well as to use a package.
+Mall EC refers to selling products on major EC sites such as Amazon, Rakuten, and Yahoo! Shopping.
 
-The second is "mall-based EC."
+Although there are fees involved, it is easier to start with a mall EC as there is no need to create a website and the initial and running costs are less than managing on your own. However, it is difficult to create originality as you are limited by the mall's rules and events and it may be harder to gather customer data for marketing.
 
-Mall e-commerce means selling products on major e-commerce sites such as Amazon, Rakuten, and Yahoo!
-
-Although there are fees involved, there is no need to create your own website, and running costs and initial costs are lower than if you operated your own website.
-
-On the other hand, it can be difficult to create uniqueness and branding because you are bound by the mall's rules and events, or you cannot acquire customer data and use it for marketing purposes.
-
-Therefore, it is important to distinguish between different types of EC depending on the type of EC you want to achieve.
-
+Therefore, it is important to decide which type of EC you want to aim for based on your goals.
 
 ## Future of EC
 
-The need for EC is increasing due to the widespread use of smartphones among people of all ages and the voluntary restraint of going out due to the coronation.
+With the widespread use of smartphones regardless of age, and the influence of COVID-19, the demand for EC is increasing.
 
-To meet such needs, the number of packaged systems and platforms for opening EC sites has been increasing, making it easier to start an EC business. However, when starting an EC business, it is important to clarify the vision of what kind of EC you want to create, which will lead to increased sales for your EC business.
+In response, the number of package systems and platforms for setting up EC sites have increased, making it easier to start with EC. However, it is important to note that starting an EC business is not just about creating a website, but also about managing and expanding it in the long term.
 
-Recently, the methods and functions for analyzing acquired data have been evolving rapidly, and such analysis will enable you to develop targeted products and branding to attract customers and improve sales.
+Recently, as data analysis methods and functions have continued to evolve, it is possible to use such analysis to conduct targeted product development and branding, and to increase customer acquisition and sales.
 
-This is a summary of my research on EC!
+That's a summary of what I researched about EC!
 
-What do you think?
+What do you think about it?
 
-Next time, I think I will have a chance to look into global EC and cross-border EC, so I will write an article about those as well.
+I think I will have the opportunity to research global EC and cross-border EC next, so I will also make articles about that.
