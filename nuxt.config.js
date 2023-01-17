@@ -150,7 +150,7 @@ export default {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://blog.unyooon.com',
+    hostname: 'https://unyooon.com',
     routes: async () => {
       const { $content } = require('@nuxt/content');
       const articles_ja = await $content('ja', 'articles')
