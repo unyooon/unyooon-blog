@@ -34,6 +34,11 @@ export default {
         href: 'https://blog.unyooon.com/en/'
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon-green.png' },
+      { rel: 'android-chrome', size: '192x192', href: '/android-chrome-192x192-green.png' },
+      { rel: 'android-chrome', size: '512x512', href: '/android-chrome-512x512-green.png' },
+      { rel: 'mask-icon', href: '/apple-touch-icon.png', colors: '#2F7777' },
+
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       {

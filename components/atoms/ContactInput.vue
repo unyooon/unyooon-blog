@@ -6,7 +6,7 @@
     <input
       v-if="!multiple"
       type="text"
-      class="p-2 w-full h-full"
+      class="p-2 w-full h-full border-2 rounded border-solid border-black"
       :placeholder="placeholder"
       :value="val"
       :required="required"
@@ -14,7 +14,7 @@
     >
     <textarea
       v-else
-      class="p-2 w-full h-full resize-none"
+      class="p-2 w-full h-full resize-none border-2 rounded border-solid border-black"
       :value="val"
       :required="required"
       @change="v => val = v.target.value"

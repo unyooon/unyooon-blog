@@ -35,7 +35,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .card {
-  width: 259.76px;
+  width: 280px;
   margin: 1em;
 
   &:hover {
@@ -60,9 +60,9 @@ export default Vue.extend({
 }
 
 .img-content {
-  width: 259.76px;
-  height: 136px;
-  margin-bottom: 0.5rem;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 0.8rem;
   transition: transform .3s;
 
   &:hover {

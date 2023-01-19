@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="img-container">
-        <img :src="require(`~/assets/picture/icatch/${$route.params.slug}-000.jpg`)" alt="">
+        <img :src="require(`~/assets/picture/icatch/${$route.params.slug}-000.png`)" alt="">
       </div>
       <div class="nuxt-content">
         <p v-for="str, i in article.description.split(/。|\./)" :key="i">

@@ -2,11 +2,29 @@
   <div class="header-container">
     <div class="header-inner">
       <div class="header-logo">
-        <nuxt-link :to="localePath('/')">
+        <nuxt-link class="flex items-center" :to="localePath('/')">
           <img :src="require('~/assets/picture/logo/header_logo.png')" alt="">
+          <div class="ml-4 header-logo__title text-2xl">
+            UNYOOON
+          </div>
         </nuxt-link>
       </div>
       <div class="button-container">
+        <AtomsButton
+          text="About"
+          :on-click="() => $router.push(localePath('/about'))"
+          :type="0"
+        />
+        <AtomsButton
+          text="Blog"
+          :on-click="() => $router.push(localePath('/articles'))"
+          :type="0"
+        />
+        <AtomsButton
+          text="Contact"
+          :on-click="() => $router.push(localePath('/contact'))"
+          :type="0"
+        />
         <div class="button-sub-container">
           <MoleculesLanguageSwitcher
             @changeLang="changeLang"
@@ -46,13 +64,13 @@ export default Vue.extend({
 .header-inner {
   width: 100%;
   max-width: 940px;
-  padding-top: 32px;
+  padding-top: 64px;
   padding-bottom: 8px;
   padding-right: 8px;
   padding-left: 8px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 
   @media (max-width: $tablet) {
     flex-direction: column;
@@ -62,13 +80,18 @@ export default Vue.extend({
 .header-logo {
 
   img {
-    width: 240px;
+    width: 64px;
+    border-radius: 50%;
   }
 
   @media (max-width: $tablet) {
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+
+  &__title {
+    font-weight: bold;
   }
 }
 

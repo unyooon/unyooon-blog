@@ -1,5 +1,5 @@
 ---
-title: Japanese programmer starts a blog
+title: Introducing Myself as a Two-Year Japanese Programmer in my First Blog Post
 description: Nice to meet you, I am UNYOOON. It has been a year and a half since I started working as a programmer. It's about time I made up my mind to start a serious blog site. I haven't been writing code at work lately, so I decided to develop my own blog site as a refresher. As this is my first blog post, I would like to introduce myself.
 category: Introduction
 date: 2022-08-26

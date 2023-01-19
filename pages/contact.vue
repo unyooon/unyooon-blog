@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center align-center w-full">
-    <div class="p-6 mt-8 mx-2 shadow-2xl rounded-3xl contact-card">
+    <div class="p-6 mt-8 mx-2 rounded-3xl contact-card">
       <div class="text-center font-bold text-2xl">
         {{ $t('contact.contactMe') }}
       </div>

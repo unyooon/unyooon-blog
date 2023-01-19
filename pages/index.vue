@@ -1,19 +1,19 @@
 <template>
   <div class="main">
-    <div class="new-topics">
-      <div class="new-topics__title">
-        <div class="new-topics__title__text">
-          New Topics
+    <div class="blogs">
+      <nuxt-link class="blogs__title" :to="localePath('/articles')">
+        <div class="blogs__title__text">
+          Blog
         </div>
-        <div class="new-topics__title__divider" />
-      </div>
-      <div class="new-topics__content">
+        <div class="blogs__title__divider" />
+      </nuxt-link>
+      <div class="blogs__content">
         <template v-for="article in articles">
           <nuxt-link :key="article._path" :to="localePath(article.path)">
             <MoleculesBlogCard
               :title="article.title"
               :category="article.category"
-              :img="require(`~/assets/picture/icatch/${article.slug}-000.jpg`)"
+              :img="require(`~/assets/picture/icatch/${article.slug}-000.png`)"
             />
           </nuxt-link>
         </template>
@@ -27,7 +27,7 @@ import Vue from 'vue';
 import { FetchReturn } from '@nuxt/content/types/query-builder';
 export default Vue.extend({
   async asyncData ({ $content, app }) {
-    const articles = await $content(app.i18n.locale, 'articles').only(['title', 'category', 'slug', 'path']).sortBy('createdAt', 'desc').fetch();
+    const articles = await $content(app.i18n.locale, 'articles').only(['title', 'category', 'slug', 'path', 'date']).sortBy('date', 'desc').fetch();
     return {
       articles: articles.map((article: FetchReturn) => ({
         ...article,
@@ -39,7 +39,14 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.new-topics {
+.home-description {
+  background-image: url('~/assets/picture/icatch/00_home.png');
+  background-size: cover;
+  height: 100vh;
+  z-index: -1;
+}
+
+.blogs {
   margin-top: 10rem;
   display: flex;
   justify-content: center;
@@ -52,25 +59,26 @@ export default Vue.extend({
 
   &__title {
     margin: 1rem 0;
-    width: 40%;
+    width: 100%;
+    cursor: pointer;
 
     @media (max-width: $tablet) {
         width: 80%;
     }
 
     &__text {
-      font-size: $x-large;
-      font-weight: bold;
+      font-size: $normal;
       font-family: $title-font;
       color: $primary;
-      text-align: center;
-      margin: 1rem 0;
+      text-align: left;
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
     }
 
     &__divider {
-      border: solid 0.5px $primary;
-      margin: 1rem 0;
-      width: 100%;
+      border-bottom: dashed 0.5px $primary;
+      margin-bottom: 1rem;
+      width: 120px;
     }
   }
 
@@ -85,5 +93,4 @@ export default Vue.extend({
     }
   }
 }
-
 </style>

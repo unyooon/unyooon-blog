@@ -1,5 +1,5 @@
 export default {
-  data () {
+  data() {
     return {
       meta: {
         title: '',
@@ -12,7 +12,7 @@ export default {
       base: 'https://blog.unyooon.com'
     };
   },
-  head () {
+  head() {
     // 相対パスを取得。例えば'/item/1'とか
     const path = this.$route.path;
 
@@ -31,7 +31,7 @@ export default {
         { hid: 'og:title', property: 'og:title', content: this.meta.title },
         { hid: 'og:type', property: 'og:type', content: this.meta.type },
         { hid: 'og:url', property: 'og:url', content: this.meta.url },
-        { hid: 'og:image', property: 'og:image', content: this.base + require(`~/assets/picture/icatch/${this.meta.slug}-000.jpg`) },
+        { hid: 'og:image', property: 'og:image', content: this.base + require(`~/assets/picture/icatch/${this.meta.slug}-000.png`) },
         { name: 'twitter:title', content: this.meta.title },
         { name: 'twitter:text:title', content: this.meta.title }
       ]
