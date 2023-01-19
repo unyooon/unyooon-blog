@@ -22,16 +22,16 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'x-default', href: 'https://blog.unyooon.com/ja/' },
+      { rel: 'x-default', href: 'https://unyooon.com/ja/' },
       {
         rel: 'alternate',
         hreflang: 'ja',
-        href: 'https://blog.unyooon.com/ja/'
+        href: 'https://unyooon.com/ja/'
       },
       {
         rel: 'alternate',
         hreflang: 'en',
-        href: 'https://blog.unyooon.com/en/'
+        href: 'https://unyooon.com/en/'
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon-green.png' },

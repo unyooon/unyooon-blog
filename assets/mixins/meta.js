@@ -9,7 +9,7 @@ export default {
         slug: ''
       },
       // ベースとなるurl。自分の環境に合わせてください。
-      base: 'https://blog.unyooon.com'
+      base: 'https://unyooon.com'
     };
   },
   head() {
