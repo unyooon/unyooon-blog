@@ -43,13 +43,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.home-description {
-  background-image: url('~/assets/picture/icatch/00_home.png');
-  background-size: cover;
-  height: 100vh;
-  z-index: -1;
-}
-
 .blogs {
   margin-top: 10rem;
   display: flex;
