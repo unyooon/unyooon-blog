@@ -19,7 +19,11 @@ import { FetchReturn } from '@nuxt/content/types/query-builder';
 import Vue from 'vue';
 export default Vue.extend({
   async asyncData ({ $content, app }) {
-    const articles = await $content(app.i18n.locale, 'articles').only(['title', 'category', 'slug', 'path', 'date']).sortBy('date', 'desc').fetch();
+    const articles = await $content(app.i18n.locale, 'articles')
+      .where({ public: true })
+      .only(['title', 'category', 'slug', 'path', 'date'])
+      .sortBy('date', 'desc')
+      .fetch();
     return {
       articles: articles.map((article: FetchReturn) => ({
         ...article,

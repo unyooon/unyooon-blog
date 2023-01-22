@@ -3,6 +3,7 @@ title: What is EC? A brief summary of the recent EC topic
 description: Hello, I'm UNYOOON. Recently, I often work on global EC websites, and I often think about what EC is. So, I wrote an article based on what I researched about EC, also as a memo.
 category: E-Commerce
 date: 2022-09-01
+public: true
 ---
 
 ## Overview of EC

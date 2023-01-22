@@ -74,7 +74,8 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module'
-    '@nuxt/postcss8'
+    '@nuxt/postcss8',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -142,9 +143,11 @@ export default {
     async routes () {
       const { $content } = require('@nuxt/content');
       const articles_ja = await $content('ja', 'articles')
+        .where({ public: true })
         .only(['path'])
         .fetch();
       const articles_en = await $content('en', 'articles')
+        .where({ public: true })
         .only(['path'])
         .fetch();
       return articles_ja
@@ -159,9 +162,11 @@ export default {
     routes: async () => {
       const { $content } = require('@nuxt/content');
       const articles_ja = await $content('ja', 'articles')
+        .where({ public: true })
         .only(['path'])
         .fetch();
       const articles_en = await $content('en', 'articles')
+        .where({ public: true })
         .only(['path'])
         .fetch();
       return articles_ja.concat(articles_en).map(a => a.path);
@@ -181,5 +186,19 @@ export default {
     viewer: true
   },
 
-  axios: {}
+  axios: {},
+
+  fontawesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons', // Solidアイコン
+        icons: []
+      },
+      {
+        set: '@fortawesome/free-brands-svg-icons', // Brandアイコン
+        icons: ['faLinkedin', 'faGithub', 'faTwitter']
+      }
+    ]
+  }
 };

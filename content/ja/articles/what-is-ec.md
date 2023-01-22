@@ -3,6 +3,7 @@ title: ECとはなにか？最近話題のECについて簡単にまとめてみ
 description: こんにちは、UNYOOONです。最近仕事でグローバルECサイトに携わることが多く、ECとは何か? と考えることがよくあります。そこで、わたしが調べまくったECについて、備忘録も兼ねて記事にしました。
 category: E-Commerce
 date: 2022-09-01
+public: true
 ---
 
 ## ECの概要

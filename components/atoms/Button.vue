@@ -1,5 +1,8 @@
 <template>
-  <div class="button" @click="onClick()">
+  <div
+    :class="`button ${active ? 'button-active' : ''}`"
+    @click="onClick()"
+  >
     {{ text }}
   </div>
 </template>
@@ -20,6 +23,11 @@ export default Vue.extend({
     type: {
       type: Number as PropType<keyof typeof buttonTypeText>,
       required: true
+    },
+    active: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -46,7 +54,12 @@ export default Vue.extend({
 }
 
 .button:hover {
-  color: $highlight;
+  color: $primary;
   cursor: pointer;
+}
+
+.button-active {
+  font-weight: bold;
+  color: $primary;
 }
 </style>

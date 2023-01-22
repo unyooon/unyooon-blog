@@ -24,16 +24,19 @@
           text="About"
           :on-click="() => $router.push(localePath('/about'))"
           :type="0"
+          :active="checkPath('about')"
         />
         <AtomsButton
           text="Blog"
           :on-click="() => $router.push(localePath('/articles'))"
           :type="0"
+          :active="checkPath('articles')"
         />
         <AtomsButton
           text="Contact"
           :on-click="() => $router.push(localePath('/contact'))"
           :type="0"
+          :active="checkPath('contact')"
         />
       </div>
     </div>
@@ -46,6 +49,10 @@ export default Vue.extend({
   methods: {
     changeLang (locale: string) {
       return this.$emit('changeLang', locale);
+    },
+    checkPath (str: string): boolean {
+      const regex = new RegExp(str);
+      return regex.test(this.$route.path);
     }
   }
 });
@@ -66,6 +73,7 @@ export default Vue.extend({
   padding-bottom: 8px;
   padding-right: 8px;
   padding-left: 8px;
+  height: $header-height;
 
   @media (max-width: $tablet) {
     padding-top: 24px;
