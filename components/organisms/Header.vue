@@ -1,15 +1,25 @@
 <template>
   <div class="header-container">
-    <div class="header-inner">
-      <div class="header-logo">
+    <div class="header-inner flex flex-col">
+      <div class="flex items-center justify-between header-logo mb-4">
+        <div class="header-logo__switcher-mobile flex justify-end w-full mb-4">
+          <MoleculesLanguageSwitcher
+            @changeLang="changeLang"
+          />
+        </div>
         <nuxt-link class="flex items-center" :to="localePath('/')">
           <img :src="require('~/assets/picture/logo/header_logo.png')" alt="">
           <div class="ml-4 header-logo__title text-2xl">
             UNYOOON
           </div>
         </nuxt-link>
+        <div class="header-logo__switcher-pc">
+          <MoleculesLanguageSwitcher
+            @changeLang="changeLang"
+          />
+        </div>
       </div>
-      <div class="button-container">
+      <div class="flex border-y border-black py-3 mt-4 header-inner__button-group">
         <AtomsButton
           text="About"
           :on-click="() => $router.push(localePath('/about'))"
@@ -25,11 +35,6 @@
           :on-click="() => $router.push(localePath('/contact'))"
           :type="0"
         />
-        <div class="button-sub-container">
-          <MoleculesLanguageSwitcher
-            @changeLang="changeLang"
-          />
-        </div>
       </div>
     </div>
   </div>
@@ -49,16 +54,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .header-container {
   width: 100%;
-  height: $header-height;
   display: flex;
   justify-content: center;
   font-family: $title-font;
-  // background-color: $primary;
-  // color: $white;
-
-  @media (max-width: $tablet) {
-    height: $header-height-mb;
-  }
 }
 
 .header-inner {
@@ -68,41 +66,46 @@ export default Vue.extend({
   padding-bottom: 8px;
   padding-right: 8px;
   padding-left: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   @media (max-width: $tablet) {
+    padding-top: 24px;
     flex-direction: column;
+  }
+
+  &__button-group {
+
+    @media (max-width: $tablet) {
+      justify-content: center;;
+    }
   }
 }
 
 .header-logo {
-
   img {
     width: 64px;
     border-radius: 50%;
   }
 
   @media (max-width: $tablet) {
-    display: flex;
-    justify-content: center;
+    justify-content: center !important;
+    flex-direction: column !important;
     width: 100%;
   }
 
   &__title {
     font-weight: bold;
   }
-}
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  &__switcher-pc {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
 
-.button-sub-container {
-  margin-right: 12px;
-  margin-left: 12px;
+  &__switcher-mobile {
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
 }
 </style>

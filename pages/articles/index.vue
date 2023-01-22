@@ -34,7 +34,7 @@ export default Vue.extend({
 
 .contents {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 4rem 0;
