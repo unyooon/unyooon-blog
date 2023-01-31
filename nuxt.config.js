@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'UNYOOON BLOG',
+    title: 'UNYOOON',
     htmlAttrs: {
       lang: 'ja',
       prefix: 'og: http://ogp.me/ns#'
@@ -17,7 +17,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '2年目ITエンジニアのしがないBLOG'
+        content: 'a coder based in Japan'
       },
       { name: 'format-detection', content: 'telephone=no' }
     ],
@@ -64,7 +64,9 @@ export default {
   css: [{ src: '~/assets/sass/app.scss', lang: 'scss' }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/fontawesome.ts'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -74,8 +76,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // '@nuxtjs/stylelint-module'
-    '@nuxt/postcss8',
-    '@nuxtjs/fontawesome'
+    '@nuxt/postcss8'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -186,19 +187,5 @@ export default {
     viewer: true
   },
 
-  axios: {},
-
-  fontawesome: {
-    component: 'fa',
-    imports: [
-      {
-        set: '@fortawesome/free-solid-svg-icons', // Solidアイコン
-        icons: []
-      },
-      {
-        set: '@fortawesome/free-brands-svg-icons', // Brandアイコン
-        icons: ['faLinkedin', 'faGithub', 'faTwitter']
-      }
-    ]
-  }
+  axios: {}
 };

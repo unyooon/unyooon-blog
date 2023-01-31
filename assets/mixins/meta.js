@@ -1,5 +1,5 @@
 export default {
-  data() {
+  data () {
     return {
       meta: {
         title: '',
@@ -12,7 +12,7 @@ export default {
       base: 'https://unyooon.com'
     };
   },
-  head() {
+  head () {
     // 相対パスを取得。例えば'/item/1'とか
     const path = this.$route.path;
 
@@ -25,7 +25,7 @@ export default {
 
     // ここから先でmetaタグを書いていく
     return {
-      title: `${this.meta.title} | UNYOOON BLOG`,
+      title: `${this.meta.title} | UNYOOON`,
       meta: [
         { hid: 'description', name: 'description', content: this.meta.description },
         { hid: 'og:title', property: 'og:title', content: this.meta.title },

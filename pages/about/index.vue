@@ -8,31 +8,32 @@
       >
       <div class="about__logo__spacer" />
       <div class="flex flex-col">
-        <div class="text-4xl py-2">
-          UNYOOON
+        <div class="text-3xl text-slate-500">
+          Hi, my name is Yuta Yamakawa 👋
         </div>
-        <div class="text-xl text-slate-500">
-          Hi, my name is Yuta Yamakawa.
-        </div>
-        <div class="text-xl text-slate-500">
-          I am a coder.
+        <div class="text-3xl text-slate-500">
+          a coder based in Japan 🇯🇵
         </div>
         <div class="pt-4 text-xl text-slate-500">
-          ** 3+ years of experience **
+          // 3+ years of experience
         </div>
         <div class="pt-4 flex">
-          <a
-            class="cursor-pointer text-slate-500 p-2"
-            href="https://github.com/unyooon"
-          >
-            <fa size="2x" :icon="['fab', 'github']" />
-          </a>
-          <a
-            class="cursor-pointer text-slate-500 p-2"
-            href="https://www.linkedin.com/in/yuta-yamakawa-unyooon"
-          >
-            <fa size="2x" :icon="['fab', 'linkedin']" />
-          </a>
+          <div class="text-slate-500 text-xl p-2 cursor-pointer">
+            <a
+              class="block w-6 h-6"
+              href="https://github.com/unyooon"
+            >
+              <fa :icon="['fab', 'github']" size="4x" />
+            </a>
+          </div>
+          <div class="text-slate-500 text-xl p-2 cursor-pointer">
+            <a
+              class="block w-6 h-6"
+              href="https://www.linkedin.com/in/yuta-yamakawa-unyooon"
+            >
+              <fa :icon="['fab', 'linkedin']" size="4x" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -111,6 +112,22 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+export default Vue.extend({
+  computed: {
+    faGithub () {
+      return faGithub;
+    },
+    faLinkedin () {
+      return faLinkedin;
+    }
+  }
+});
+</script>
 
 <style lang="scss" scoped>
 .about {
