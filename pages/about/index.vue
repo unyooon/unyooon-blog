@@ -1,166 +1,113 @@
 <template>
-  <div class="about flex flex-col pt-8 px-4">
-    <div class="about__logo flex items-center mb-10">
-      <img
-        src="~/assets/picture//logo/header_logo.png"
-        class="about__logo__img rounded-full"
-        alt=""
-      >
-      <div class="about__logo__spacer" />
-      <div class="flex flex-col">
-        <div class="text-3xl text-slate-500">
-          Hi, my name is Yuta Yamakawa 👋
-        </div>
-        <div class="text-3xl text-slate-500">
-          a coder based in Japan 🇯🇵
-        </div>
-        <div class="pt-4 text-xl text-slate-500">
-          // 3+ years of experience
-        </div>
-        <div class="pt-4 flex">
-          <div class="text-slate-500 text-xl p-2 cursor-pointer">
-            <a
-              class="block w-6 h-6"
-              href="https://github.com/unyooon"
-            >
-              <fa :icon="['fab', 'github']" size="4x" />
-            </a>
-          </div>
-          <div class="text-slate-500 text-xl p-2 cursor-pointer">
-            <a
-              class="block w-6 h-6"
-              href="https://www.linkedin.com/in/yuta-yamakawa-unyooon"
-            >
-              <fa :icon="['fab', 'linkedin']" size="4x" />
-            </a>
-          </div>
+  <div class="about">
+    <div class="about__inner">
+      <div class="about__introduction">
+        <img :src="imgLogoUnyooonPng" alt="" />
+        <div>
+          <h2>Hi, my name is Yuta Yamakawa 👋</h2>
+          <h2>a coder based in Japan 🇯🇵</h2>
+          <div>// 3+ years of experience</div>
         </div>
       </div>
-    </div>
-    <div class="about__experience flex flex-col">
-      <div class="about__experience__title pb-2 text-2xl underline decoration-solid">
-        Main Skills / years
-      </div>
-      <div class="flex flex-wrap">
-        <div class="flex flex-col pb-2">
-          <div class="py-1 pr-10 text-xl text-slate-500 font-bold">
-            Frontend development
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Vue/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            NuxtJS/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            JavaScript/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            TypeScript/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            HTML/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            SCSS/+2
-          </div>
+      <div class="about__skills">
+        <h3>Main skills</h3>
+        <h4>3+ years of experience</h4>
+        <div>
+          <div>HTML</div>
+          <div>SCSS</div>
+          <div>JavaScript</div>
+          <div>TypeScript</div>
+          <div>Vue.js</div>
+          <div>Nuxt.js</div>
         </div>
-        <div class="flex flex-col pb-2">
-          <div class="py-1 pr-10 text-xl text-slate-500 font-bold">
-            Backend development
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            .NET Core/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Entity Framework/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            C#/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Django/+0.5
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Python/+1
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Gin/+0.5
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Gorm/+0.5
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Go/+0.5
-          </div>
+        <h4>2+ years of experience</h4>
+        <div>
+          <div>C#</div>
+          <div>.NET Core</div>
+          <div>Entity Framework</div>
+          <div>Azure</div>
         </div>
-        <div class="flex flex-col pb-2">
-          <div class="py-1 pr-10 text-xl text-slate-500 font-bold">
-            Infrastructure building
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Azure/+2
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            AWS/+0.5
-          </div>
-          <div class="py-1 text-xl text-slate-500">
-            Firebase/+0.5
-          </div>
+        <h4>1+ years of experience</h4>
+        <div>
+          <div>Go</div>
+          <div>Gin</div>
+          <div>Gorm</div>
+          <div>Python</div>
+          <div>Django</div>
+          <div>AWS</div>
+          <div>Firebase</div>
+          <div>Hyperledger Fabric</div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
-export default Vue.extend({
-  computed: {
-    faGithub () {
-      return faGithub;
-    },
-    faLinkedin () {
-      return faLinkedin;
-    }
-  }
-});
-</script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped>
 .about {
-  font-family: "Work Sans", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 
-  &__logo {
-    @media (max-width: $tablet) {
-      flex-direction: column;
-      align-items: flex-start;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 72px;
+    max-width: 800px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 16px;
+  }
+
+  &__introduction {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+
+    img {
+      width: 180px;
+      height: auto;
+      border-radius: 50%;
     }
 
-    &__spacer {
-      width: 80px;
+    > div {
+      margin-left: 48px;
 
-      @media (max-width: $tablet) {
-        display: none;
-      }
-    }
-
-    &__img {
-      width: 240px;
-      height: 240px;
-
-      @media (max-width: $tablet) {
-        width: 96px;
-        height: 96px;
+      > div {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 8px;
       }
     }
   }
 
-  &__experience {
-    &__title {
-      color: $primary;
+  &__skills {
+    margin-top: 32px;
+
+    h3 {
+      text-decoration: underline;
+    }
+
+    h4 {
+      margin-top: 18px;
+    }
+
+    > div {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 16px;
+
+      > div {
+        margin-right: 16px;
+        margin-bottom: 16px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        background-color: #f0f0f0;
+      }
     }
   }
 }

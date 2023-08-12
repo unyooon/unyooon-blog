@@ -1,51 +1,61 @@
 <template>
-  <div class="main">
-    <div class="contents">
-      <template v-for="article in articles">
-        <nuxt-link :key="article._path" :to="localePath(article.path)">
-          <MoleculesBlogCard
-            :title="article.title"
-            :category="article.category"
-            :img="require(`~/assets/picture/icatch/${article.slug}-000.png`)"
-          />
-        </nuxt-link>
-      </template>
+  <div class="articles">
+    <div class="articles__list">
+      <BlogCard
+        v-for="(article, i) in data"
+        :key="`article-${i}`"
+        :title="article.title"
+        :category="article.category"
+        :date="article.date"
+        :image="article.image"
+        @onClick="() => router.push(article._path)"
+      />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { FetchReturn } from '@nuxt/content/types/query-builder';
-import Vue from 'vue';
-export default Vue.extend({
-  async asyncData ({ $content, app }) {
-    const articles = await $content(app.i18n.locale, 'articles')
-      .where({ public: true })
-      .only(['title', 'category', 'slug', 'path', 'date'])
-      .sortBy('date', 'desc')
-      .fetch();
-    return {
-      articles: articles.map((article: FetchReturn) => ({
-        ...article,
-        path: article.path.replace(`/${app.i18n.locale}`, '')
-      }))
-    };
-  }
-});
+<script lang="ts" setup>
+const router = useRouter()
+
+const { data } = await useAsyncData('articles', async () => {
+  const data = await queryContent('/articles')
+    .where({
+      public: {
+        $eq: true,
+      },
+    })
+    .only(['title', 'category', 'date', 'public', '_path'])
+    .find()
+  return data.map((article) => {
+    article.image = `/icatch/${article._path}-000.png`
+    return article
+  })
+})
 </script>
 
 <style lang="scss" scoped>
-
-.contents {
+.articles {
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 4rem 0;
 
-  @media (max-width: $tablet) {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    max-width: 1248px;
+    padding-top: 24px;
+
+    > div {
+      margin: 16px;
+    }
+  }
+
+  &__list:after {
+    content: '';
+    display: block;
+    width: 280px;
+    margin: 16px;
+    height: 0;
   }
 }
-
 </style>
