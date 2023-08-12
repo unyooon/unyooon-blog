@@ -2,9 +2,10 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
+    "start": "nuxi start",
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxi generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -21,9 +22,12 @@
     "eslint-plugin-vue": "^9.17.0",
     "nuxt": "^3.6.5",
     "prettier": "^3.0.1",
-    "sass": "^1.65.1"
+    "sass": "^1.65.1",
+    "sitemap": "^7.1.1"
   },
   "dependencies": {
-    "dayjs": "^1.11.9"
+    "dayjs": "^1.11.9",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
   }
 }
