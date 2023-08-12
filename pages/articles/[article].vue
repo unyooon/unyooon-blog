@@ -21,7 +21,16 @@
           {{ data.description }}
         </div>
         <template v-for="content in data.body.children">
-          <component v-if="content.type === 'element'" :is="content.tag">
+          <!-- ulとliの場合 -->
+          <component v-if="content.tag === 'ul'" :is="content.tag">
+            <template v-for="item in content.children">
+              <component :is="item.tag">
+                {{ item.children[0].value }}
+              </component>
+            </template>
+          </component>
+          <!-- その他h1やh2の場合 -->
+          <component v-else-if="content.type === 'element'" :is="content.tag">
             {{ content.children[0].value }}
           </component>
         </template>
@@ -55,6 +64,8 @@ const { data } = await useAsyncData('article', async () => {
   data.image = `/icatch${data._path}-000.png`
   return data
 })
+
+console.log(data.value)
 
 // head情報
 useHead({
