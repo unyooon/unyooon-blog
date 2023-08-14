@@ -3,13 +3,18 @@ import { SitemapStream, streamToPromise } from 'sitemap'
 
 export default defineEventHandler(async (event) => {
   // Fetch all documents
-  const allDocs = await serverQueryContent(event).find()
-  const publicDocs = allDocs.filter((doc) => doc._public)
+  const docs = await serverQueryContent(event)
+    .where({
+      public: {
+        $eq: true,
+      },
+    })
+    .find()
   const sitemap = new SitemapStream({
     hostname: 'https://unyooon.com',
   })
 
-  for (const doc of publicDocs) {
+  for (const doc of docs) {
     sitemap.write({
       url: doc._path,
       changefreq: 'monthly',
