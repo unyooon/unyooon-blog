@@ -117,6 +117,7 @@ useHead({
 
 <style lang="scss" scoped>
 .articles-path {
+  width: 100%;
   display: flex;
   justify-content: center;
 

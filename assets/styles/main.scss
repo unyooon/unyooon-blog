@@ -31,6 +31,7 @@ a {
 pre {
   background-color: $background-color--code-dark;
   padding: 16px;
+  white-space: pre-wrap;
 }
 
 p > code {
