@@ -68,6 +68,15 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swapm',
         },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css',
+        },
+      ],
+      script: [
+        {
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js',
+        },
       ],
     },
   },
@@ -90,7 +99,24 @@ export default defineNuxtConfig({
     },
   },
 
-  content: {},
+  // content
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      theme: 'monokai',
+      preload: [
+        'diff',
+        'ts',
+        'js',
+        'css',
+        'java',
+        'groovy',
+        'sql',
+        'xml',
+        'json',
+      ],
+    },
+  },
 
   hooks: {
     'nitro:config': async function extendNitroConfig(nitroConfig) {
@@ -111,9 +137,6 @@ export default defineNuxtConfig({
           items.map(async (item) => {
             // アイテムの絶対パスを取得
             const itemPath = path.join(folderPath, item)
-
-            // 取得した絶対パスを配列に追加
-            // filePaths.push(itemPath)
 
             // アイテムがディレクトリかどうかを確認
             const isDirectory = fs.statSync(itemPath).isDirectory()

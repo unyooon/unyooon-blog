@@ -34,6 +34,9 @@ $background-color--tonal-button: #fff;
 $background-color--tonal-button-hover: $primary-color-50;
 $background-color--tonal-button-active: $primary-color-100;
 
+// code
+$background-color--code-dark: $primary-color-950;
+
 /**
  * Text Colors
  */
@@ -56,6 +59,12 @@ $text-color--outline-button-active: $primary-color-700;
 $text-color--tonal-button: $text-color--button;
 $text-color--tonal-button-hover: $primary-color-700;
 $text-color--tonal-button-active: $primary-color-700;
+
+// code
+$text-color--code: $primary-color-600;
+
+// link
+$text-color--link: $primary-color-400;
 
 /**
  * Border Colors

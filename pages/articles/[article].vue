@@ -20,8 +20,8 @@
         <div>
           {{ data.description }}
         </div>
-        <template v-for="content in data.body.children">
-          <!-- ulとliの場合 -->
+        <ContentRenderer :value="data" />
+        <!-- <template v-for="content in data.body.children">
           <component v-if="content.tag === 'ul'" :is="content.tag">
             <template v-for="item in content.children">
               <component :is="item.tag">
@@ -29,11 +29,30 @@
               </component>
             </template>
           </component>
-          <!-- その他h1やh2の場合 -->
+
+          <template v-else-if="content.tag === 'code'">
+            <pre>
+              <code :class="content.props.className">{{ content.props.code }}</code>
+            </pre>
+          </template>
           <component v-else-if="content.type === 'element'" :is="content.tag">
-            {{ content.children[0].value }}
+            <template v-for="child in content.children">
+              <template v-if="child.type === 'text'">
+                {{ child.value }}
+              </template>
+              <component
+                v-if="child.tag === 'a'"
+                :is="child.tag"
+                :href="child.props.href"
+              >
+                {{ child.children[0].value }}
+              </component>
+              <component v-else-if="child.type === 'element'" :is="child.tag">
+                {{ child.value }}
+              </component>
+            </template>
           </component>
-        </template>
+        </template> -->
       </div>
     </div>
   </div>
@@ -64,8 +83,6 @@ const { data } = await useAsyncData('article', async () => {
   data.image = `/icatch${data._path}-000.png`
   return data
 })
-
-console.log(data.value)
 
 // head情報
 useHead({
@@ -171,5 +188,21 @@ useHead({
       font-size: 24px;
     }
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  a {
+    text-decoration: none;
+    color: $text-color--body;
+  }
+}
+
+h2 {
+  font-size: 24px;
 }
 </style>
