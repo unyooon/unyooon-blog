@@ -146,7 +146,6 @@ export default defineNuxtConfig({
 
       const folderPath = './content'
       const filepaths = await getFilePaths(folderPath)
-      console.log(filepaths)
 
       filepaths.forEach((filepath) => addRoute(filepath.slice(7).split('.')[0]))
     },
