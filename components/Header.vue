@@ -60,4 +60,18 @@ const router = useRouter()
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 120px;
+    padding: 16px;
+    flex-direction: column;
+
+    &__logo {
+      a {
+        // font-size: 16px;
+      }
+    }
+  }
+}
 </style>

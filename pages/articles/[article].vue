@@ -154,4 +154,22 @@ useHead({
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .articles-path {
+    margin-top: 24px;
+
+    &__inner {
+      padding: 0 8px;
+    }
+
+    &__content {
+      padding: 24px 16px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+}
 </style>

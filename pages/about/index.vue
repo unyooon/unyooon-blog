@@ -48,6 +48,7 @@
 <style lang="scss" scoped>
 .about {
   width: 100%;
+  padding: 0 8px;
   display: flex;
   justify-content: center;
 
@@ -108,6 +109,34 @@
         border-radius: 8px;
         background-color: #f0f0f0;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    &__inner {
+      margin-top: 48px;
+      padding: 16px;
+    }
+
+    &__introduction {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 0;
+
+      img {
+        width: 80px;
+        margin-bottom: 16px;
+      }
+
+      > div {
+        margin-left: 0;
+      }
+    }
+
+    &__skills {
+      margin-top: 48px;
     }
   }
 }

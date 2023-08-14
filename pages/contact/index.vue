@@ -59,12 +59,21 @@ const send = async () => {
   justify-content: center;
   align-items: center;
   margin-top: 48px;
+  padding: 0 8px;
 
   &__input-container {
     display: flex;
     justify-content: center;
     width: 540px;
     margin: 24px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact {
+    &__input-container {
+      width: 100%;
+    }
   }
 }
 </style>
