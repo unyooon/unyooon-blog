@@ -69,7 +69,11 @@ const dayjs = app.$dayjs
 const path = route.fullPath
 if (typeof path !== 'string') router.push('/articles')
 
-const { data } = await useAsyncData('article', async () => {
+/**
+ * 記事取得関数
+ * @param path
+ */
+const getArticleAsync = async () => {
   const data = await queryContent('/articles')
     .where({
       _path: {
@@ -82,7 +86,9 @@ const { data } = await useAsyncData('article', async () => {
 
   data.image = `/icatch${data._path}-000.png`
   return data
-})
+}
+
+const { data } = await useAsyncData(`article-${path}`, getArticleAsync)
 
 // head情報
 useHead({

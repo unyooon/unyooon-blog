@@ -1,15 +1,17 @@
 <template>
   <div class="articles">
     <div class="articles__list">
-      <BlogCard
-        v-for="(article, i) in data"
-        :key="`article-${i}`"
-        :title="article.title"
-        :category="article.category"
-        :date="article.date"
-        :image="article.image"
-        @onClick="() => router.push(article._path)"
-      />
+      <template v-for="(article, i) in data">
+        <nuxt-link :to="article._path">
+          <BlogCard
+            :key="`article-${i}`"
+            :title="article.title"
+            :category="article.category"
+            :date="article.date"
+            :image="article.image"
+          />
+        </nuxt-link>
+      </template>
     </div>
   </div>
 </template>
@@ -45,8 +47,10 @@ const { data } = await useAsyncData('articles', async () => {
     max-width: 1248px;
     padding-top: 24px;
 
-    > div {
+    a {
       margin: 16px;
+      text-decoration: none;
+      color: $text-color--body;
     }
   }
 
