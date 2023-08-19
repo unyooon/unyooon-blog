@@ -34,53 +34,55 @@ generate時にブログの一覧ページは生成されるのに、詳細ペー
 
 ```typescript
 hooks: {
-    'nitro:config': async function extendNitroConfig(nitroConfig) {
-      const addRoute = (route: string) => {
-        if (!nitroConfig.prerender?.routes?.includes(route)) {
-          nitroConfig.prerender?.routes?.push(route)
-        }
+  'nitro:config': async function extendNitroConfig(nitroConfig) {
+    const addRoute = (route: string) => {
+      if (!nitroConfig.prerender?.routes?.includes(route)) {
+        nitroConfig.prerender?.routes?.push(route)
       }
+    }
 
-      const getFilePaths = async (folderPath: string) => {
-        // フォルダ内のすべてのアイテムを取得
-        const items = fs.readdirSync(folderPath)
+    const getFilePaths = async (folderPath: string) => {
+      // フォルダ内のすべてのアイテムを取得
+      const items = fs.readdirSync(folderPath)
 
-        const filePaths: string[] = []
+      const filePaths: string[] = []
 
-        // 各アイテムについて処理を行う
-        await Promise.all(
-          items.map(async (item) => {
-            // アイテムの絶対パスを取得
-            const itemPath = path.join(folderPath, item)
+      // 各アイテムについて処理を行う
+      await Promise.all(
+        items.map(async (item) => {
+          // アイテムの絶対パスを取得
+          const itemPath = path.join(folderPath, item)
 
-            // アイテムがディレクトリかどうかを確認
-            const isDirectory = fs.statSync(itemPath).isDirectory()
+          // アイテムがディレクトリかどうかを確認
+          const isDirectory = fs.statSync(itemPath).isDirectory()
 
-            if (isDirectory) {
-              // アイテムがディレクトリの場合は再帰的にそのディレクトリ内のファイルパスを取得
-              const subFolderPaths = await getFilePaths(itemPath)
+          if (isDirectory) {
+            // アイテムがディレクトリの場合は再帰的にそのディレクトリ内のファイルパスを取得
+            const subFolderPaths = await getFilePaths(itemPath)
 
-              // 取得したファイルパスを配列に追加
-              filePaths.push(...subFolderPaths)
-            } else {
-              // publicがtrueの場合のみ、ファイルパスを配列に追加
-              const data = await new Promise<string>((resolve, reject) => {
-                fs.readFile(itemPath, 'utf8', (err, data) => {
-                  if (err) reject(err)
-                  resolve(data)
-                })
+            // 取得したファイルパスを配列に追加
+            filePaths.push(...subFolderPaths)
+          } else {
+            // publicがtrueの場合のみ、ファイルパスを配列に追加
+            const data = await new Promise<string>((resolve, reject) => {
+              fs.readFile(itemPath, 'utf8', (err, data) => {
+                if (err) reject(err)
+                resolve(data)
               })
+            })
 
-              const isPublic = data.includes('public: true')
-              if (isPublic) {
-                filePaths.push(itemPath)
-              }
+            const isPublic = data.includes('public: true')
+            if (isPublic) {
+              filePaths.push(itemPath)
             }
-          })
-        )
+          }
+        })
+      )
 
-        return filePaths
-      }
+      return filePaths
+    }
+  }
+}
 ```
 
 \
@@ -93,49 +95,49 @@ hooks: {
 それが必要なければ多分こうなるのかな？
 
 ```typescript
-  hooks: {
-    'nitro:config': async function extendNitroConfig(nitroConfig) {
-      const addRoute = (route: string) => {
-        if (!nitroConfig.prerender?.routes?.includes(route)) {
-          nitroConfig.prerender?.routes?.push(route)
+hooks: {
+  'nitro:config': async function extendNitroConfig(nitroConfig) {
+    const addRoute = (route: string) => {
+      if (!nitroConfig.prerender?.routes?.includes(route)) {
+        nitroConfig.prerender?.routes?.push(route)
+      }
+    }
+
+    const getFilePaths = (folderPath: string) => {
+      // フォルダ内のすべてのアイテムを取得
+      const items = fs.readdirSync(folderPath)
+
+      const filePaths: string[] = []
+
+      // 各アイテムについて処理を行う
+      items.forEach((item) => {
+        // アイテムの絶対パスを取得
+        const itemPath = path.join(folderPath, item)
+
+        // 取得した絶対パスを配列に追加
+        filePaths.push(itemPath)
+
+        // アイテムがディレクトリかどうかを確認
+        const isDirectory = fs.statSync(itemPath).isDirectory()
+
+        if (isDirectory) {
+          // アイテムがディレクトリの場合は再帰的にそのディレクトリ内のファイルパスを取得
+          const subFolderPaths = getFilePaths(itemPath)
+
+          // 取得したファイルパスを配列に追加
+          filePaths.push(...subFolderPaths)
         }
-      }
+      })
 
-      const getFilePaths = (folderPath: string) => {
-        // フォルダ内のすべてのアイテムを取得
-        const items = fs.readdirSync(folderPath)
+      return filePaths
+    }
 
-        const filePaths: string[] = []
+    const folderPath = './content'
+    const filepaths = getFilePaths(folderPath)
 
-        // 各アイテムについて処理を行う
-        items.forEach((item) => {
-          // アイテムの絶対パスを取得
-          const itemPath = path.join(folderPath, item)
-
-          // 取得した絶対パスを配列に追加
-          filePaths.push(itemPath)
-
-          // アイテムがディレクトリかどうかを確認
-          const isDirectory = fs.statSync(itemPath).isDirectory()
-
-          if (isDirectory) {
-            // アイテムがディレクトリの場合は再帰的にそのディレクトリ内のファイルパスを取得
-            const subFolderPaths = getFilePaths(itemPath)
-
-            // 取得したファイルパスを配列に追加
-            filePaths.push(...subFolderPaths)
-          }
-        })
-
-        return filePaths
-      }
-
-      const folderPath = './content'
-      const filepaths = getFilePaths(folderPath)
-
-      filepaths.forEach((filepath) => addRoute(filepath.slice(7).split('.')[0]))
-    },
+    filepaths.forEach((filepath) => addRoute(filepath.slice(7).split('.')[0]))
   },
+},
 ```
 
 \

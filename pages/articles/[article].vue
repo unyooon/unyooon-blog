@@ -20,7 +20,7 @@
         <div>
           {{ data.description }}
         </div>
-        <ContentRenderer :value="data" />
+        <ContentRenderer :value="data" style="width: 100%" />
         <!-- <template v-for="content in data.body.children">
           <component v-if="content.tag === 'ul'" :is="content.tag">
             <template v-for="item in content.children">
@@ -128,6 +128,7 @@ useHead({
   justify-content: center;
 
   &__inner {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -165,6 +166,7 @@ useHead({
   }
 
   &__content {
+    width: 100%;
     background-color: #fff;
     border-radius: 16px;
     padding: 24px 40px;
