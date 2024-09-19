@@ -11,6 +11,8 @@ $primary-color-800: #1b4a30;
 $primary-color-900: #173d29;
 $primary-color-950: #0c2217;
 
+$disabled-color: #f2f2f2;
+
 /**
  * Background Colors
  */
@@ -34,8 +36,16 @@ $background-color--tonal-button: #fff;
 $background-color--tonal-button-hover: $primary-color-50;
 $background-color--tonal-button-active: $primary-color-100;
 
+// Disabled Button
+$background-color--disabled-button: $disabled-color;
+
 // code
 $background-color--code-dark: $primary-color-950;
+
+// spinner
+$background-color--spinner: $primary-color-950;
+$background-color--fill-spinner: #fff;
+$background-color--spinner-top: transparent;
 
 /**
  * Text Colors
@@ -60,6 +70,9 @@ $text-color--tonal-button: $text-color--button;
 $text-color--tonal-button-hover: $primary-color-700;
 $text-color--tonal-button-active: $primary-color-700;
 
+// Disabled Button
+$text-color--disabled-button: $primary-color-950;
+
 // code
 $text-color--code: $primary-color-600;
 
@@ -74,3 +87,4 @@ $text-color--link: $primary-color-400;
 $border-color--outline-button: $primary-color-700;
 $border-color--outline-button-hover: $primary-color-700;
 $border-color--outline-button-active: $primary-color-700;
+$border-color--outline-button-disabled: $primary-color-950;
