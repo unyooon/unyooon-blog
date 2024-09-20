@@ -18,16 +18,30 @@
       height="16px"
     />
     <span v-if="!loading">{{ props.text }}</span>
-    <span v-else class="loading-spinner"></span>
+    <div v-else class="loading-spinner"></div>
   </button>
-  <NuxtLink v-else :to="link" :target="linkTarget">{{ text }}</NuxtLink>
+  <a
+    v-else
+    :class="[
+      styleType,
+      'primary-button',
+      { disabled: disabled, loading: loading },
+    ]"
+    :style="{ width, height }"
+    :href="link"
+    :target="linkTarget"
+    >{{ text }}</a
+  >
 </template>
 
 <script lang="ts" setup>
+import { imgPenIconSvg } from '~/composables/utils/images'
+import { imgPenIconWhiteSvg } from '~/composables/utils/images'
+
 interface Props {
-  type: 'button' | 'submit'
-  text: string
-  styleType: 'flat' | 'outline' | 'fill'
+  type?: 'button' | 'submit'
+  text?: string
+  styleType?: 'flat' | 'outline' | 'fill'
   active?: boolean
   disabled?: boolean
   loading?: boolean
@@ -41,8 +55,8 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   type: 'button',
   text: 'Button',
-  active: false,
   styleType: 'flat',
+  active: false,
   disabled: false,
   loading: false,
   linkTarget: '_blank',
@@ -79,14 +93,16 @@ const icon = computed(() => {
 })
 
 const handleClick = (e: MouseEvent) => {
-  if (props.type === 'submit') {
-    // ロード中や無効化されている場合は送信しない
-    if (props.loading || props.disabled) {
-      e.preventDefault()
-    }
-  } else {
-    emits('onClick')
+  if (props.loading || props.disabled) {
+    e.preventDefault()
+    return
   }
+
+  if (props.type === 'submit') {
+    return
+  }
+
+  emits('onClick')
 }
 </script>
 
